@@ -29,7 +29,7 @@ jobs:
       - name: rust-grcov
         uses: actions-rs/grcov@v0.1.5
         with:
-          config: configs/grcov.yml
+          config: actions-rs/grcov.yml
       - name: Coveralls upload
         uses: coverallsapp/github-action@v1.1.2
         with:
