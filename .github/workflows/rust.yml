@@ -32,7 +32,7 @@ jobs:
         uses: coverallsapp/github-action@v1.1.2
         with:
           github-token: ${{ secrets.github_token }}
-          path-to-lcov: './lcov.info'
+          file: ${{ steps.coverage.outputs.report }}.info
   clippy_check:
     runs-on: ubuntu-latest
     steps:
