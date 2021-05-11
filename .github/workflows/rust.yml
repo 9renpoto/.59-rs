@@ -33,7 +33,7 @@ jobs:
           key: ${{ runner.os }}-grcov
       - name: Gather coverage data
         id: coverage
-        uses: actions-rs/grcov@v0.1
+        uses: actions-rs/grcov@v0.1.6
       - name: Coveralls upload
         uses: coverallsapp/github-action@v1.1.2
         with:
