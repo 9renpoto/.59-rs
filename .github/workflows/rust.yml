@@ -22,7 +22,8 @@ jobs:
         uses: actions-rs/tarpaulin@v0.1
         with:
           version: '0.15.0'
-          args: '-- --test-threads 1'
+          args: '-- --verbose --all-features --test-threads 1'
+          out-type: Lcov
       - name: Coveralls upload
         uses: coverallsapp/github-action@1.1.3
         with:
@@ -35,7 +36,7 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
-          components: clippy
+          components: rustfmt, clippy
       - uses: actions-rs/clippy-check@v1.0.7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
