@@ -22,7 +22,7 @@ jobs:
         uses: actions-rs/tarpaulin@v0.1
         with:
           version: '0.15.0'
-          args: '--verbose --all-features -- --test-threads 1'
+          args: '--tests'
           out-type: Lcov
       - name: Coveralls upload
         uses: coverallsapp/github-action@1.1.3
