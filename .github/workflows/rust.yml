@@ -11,33 +11,41 @@ env:
 
 jobs:
   test:
+    needs: check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@v1
+        with:
+          toolchain: stable
+      # - name: Run cargo-tarpaulin
+      #   uses: actions-rs/tarpaulin@v0.1.0
+      #   with:
+      #     out-type: Lcov
+      #     version: '0.15.0'
+      #     args: '-- --test-threads 1'
+      - uses: Swatinem/rust-cache@v2
+      - name: Run tests
+        run: cargo test --workspace --all-features --all-targets
+      # - name: Coveralls upload
+      #   uses: coverallsapp/github-action@1.1.3
+      #   with:
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
+      #     path-to-lcov: lcov.info
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@v1
+        with:
+          toolchain: stable
+          components: rustfmt, clippy
       - name: rustup toolchain install
         uses: dtolnay/rust-toolchain@v1
         with:
           toolchain: stable
-      - name: Run cargo-tarpaulin
-        uses: actions-rs/tarpaulin@v0.1.0
-        with:
-          out-type: Lcov
-          version: '0.15.0'
-          args: '-- --test-threads 1'
-      - name: Coveralls upload
-        uses: coverallsapp/github-action@1.1.3
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: lcov.info
-  clippy_check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          components: rustfmt, clippy
-      - uses: actions-rs/clippy-check@v1.0.7
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          args: --all-features
+      - uses: Swatinem/rust-cache@v2
+      - name: Check
+        run: cargo clippy --workspace --all-targets --all-features -- -D warnings
+      - name: rustfmt
+        run: cargo fmt --all --check
