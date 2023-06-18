@@ -18,12 +18,11 @@ jobs:
       - uses: dtolnay/rust-toolchain@v1
         with:
           toolchain: stable
+          components: llvm-tools-preview
       - uses: Swatinem/rust-cache@v2
-      - name: Run tests
-        run: |
-          - cargo test --workspace --all-features --all-targets
-          - cargo install grcov
-          - grcov . --binary-path ./target/debug/ -t coveralls -s . > coveralls.json
+      - run: cargo test --workspace --all-features --all-targets
+      - run: cargo install grcov
+      - run: grcov . --binary-path ./target/debug/ -t coveralls -s . > coveralls.json
       - name: Coveralls upload
         uses: coverallsapp/github-action@1.1.3
         with:
