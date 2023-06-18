@@ -22,7 +22,7 @@ jobs:
       - uses: Swatinem/rust-cache@v2
       - run: cargo test --workspace --all-features --all-targets
       - run: cargo install grcov
-      - run: grcov . --binary-path ./target/debug/ -t coveralls -s . > coveralls.json
+      - run: grcov . --binary-path ./target/debug/
       - name: Coveralls upload
         uses: coverallsapp/github-action@1.1.3
         with:
