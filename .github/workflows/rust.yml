@@ -18,23 +18,16 @@ jobs:
       - uses: dtolnay/rust-toolchain@v1
         with:
           toolchain: stable
-      # - name: Run cargo-tarpaulin
-      #   uses: actions-rs/tarpaulin@v0.1.0
-      #   with:
-      #     out-type: Lcov
-      #     version: '0.15.0'
-      #     args: '-- --test-threads 1'
       - uses: Swatinem/rust-cache@v2
       - name: Run tests
         run: |
           - cargo test --workspace --all-features --all-targets
           - cargo install grcov
-          - grcov . --binary-path ./target/debug/ -s . -t cobertura --branch --ignore-not-existing --ignore "*cargo*" -o coverage.xml
+          - grcov . --binary-path ./target/debug/ -t coveralls -s . > coveralls.json
       - name: Coveralls upload
         uses: coverallsapp/github-action@1.1.3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          format: cobertura
   check:
     runs-on: ubuntu-latest
     steps:
