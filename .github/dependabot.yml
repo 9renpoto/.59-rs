@@ -2,13 +2,13 @@ version: 2
 updates:
   - package-ecosystem: cargo
     directory: /
-    labels:
-      - "Type: Maintenance"
     schedule:
       interval: weekly
+    labels:
+      - "Type: Maintenance"
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
       interval: weekly
-      labels:
-        - "Type: Maintenance"
+    labels:
+      - "Type: Maintenance"
