@@ -1,9 +1,15 @@
 repos:
--   repo: https://github.com/DevinR528/cargo-sort
-    rev: v1.0.7
+  - repo: https://github.com/streetsidesoftware/cspell-cli
+    rev: v8.17.0
     hooks:
-    -   id: cargo-sort
--   repo: local
+      - id: cspell
+
+  - repo: https://github.com/DevinR528/cargo-sort
+    rev: v1.1.0
+    hooks:
+      - id: cargo-sort
+
+  - repo: local
     hooks:
       - id: fmt
         name: fmt
@@ -25,4 +31,3 @@ repos:
         types: [file, rust]
         entry: cargo test --lib
         pass_filenames: false
-
