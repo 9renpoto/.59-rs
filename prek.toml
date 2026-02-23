@@ -3,15 +3,15 @@
 #:schema https://www.schemastore.org/prek.json
 
 [[repos]]
-repo = "https://github.com/streetsidesoftware/cspell-cli"
-rev = "v8.17.0"
+repo = "https://github.com/crate-ci/typos"
+rev = "v1.43.5"
 hooks = [
-  { id = "cspell" }
+  { id = "typos" }
 ]
 
 [[repos]]
 repo = "https://github.com/DevinR528/cargo-sort"
-rev = "v1.1.0"
+rev = "v2.0.2"
 hooks = [
   { id = "cargo-sort" }
 ]
