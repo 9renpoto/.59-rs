@@ -1,0 +1,55 @@
+# Configuration file for `prek`, a git hook framework written in Rust.
+# See https://prek.j178.dev for more information.
+#:schema https://www.schemastore.org/prek.json
+
+[[repos]]
+repo = "https://github.com/streetsidesoftware/cspell-cli"
+rev = "v8.17.0"
+hooks = [
+  { id = "cspell" }
+]
+
+[[repos]]
+repo = "https://github.com/DevinR528/cargo-sort"
+rev = "v1.1.0"
+hooks = [
+  { id = "cargo-sort" }
+]
+
+[[repos]]
+repo = "local"
+hooks = [
+  {
+    id = "fmt",
+    name = "fmt",
+    language = "system",
+    types = [
+      "file",
+      "rust"
+    ],
+    entry = "cargo fmt -- --check",
+    pass_filenames = false
+  },
+  {
+    id = "clippy",
+    name = "clippy",
+    language = "system",
+    types = [
+      "file",
+      "rust"
+    ],
+    entry = "cargo clippy --bins --tests --examples --all -- -D rust_2018_idioms -D warnings",
+    pass_filenames = false
+  },
+  {
+    id = "test",
+    name = "test",
+    language = "system",
+    types = [
+      "file",
+      "rust"
+    ],
+    entry = "cargo test",
+    pass_filenames = false
+  }
+]
