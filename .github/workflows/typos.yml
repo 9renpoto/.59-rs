@@ -1,0 +1,10 @@
+name: "Check spelling"
+on:
+  pull_request:
+
+jobs:
+  typos:
+    runs-on: ubuntu-slim
+    steps:
+      - uses: actions/checkout@v5
+      - uses: crate-ci/typos@v1
