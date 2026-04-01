@@ -17,12 +17,9 @@ updates:
     groups:
       actions:
         patterns:
-          - "actions/checkout"
-          - "actions/download-artifact"
-          - "actions/stale"
+          - "actions/*"
       labeling:
         patterns:
-          - "EndBug/export-label-config"
-          - "EndBug/label-sync"
+          - "EndBug/*"
     labels:
       - "Type: Maintenance"
