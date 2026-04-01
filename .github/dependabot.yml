@@ -6,11 +6,6 @@ updates:
       interval: weekly
     cooldown:
       default-days: 7
-    groups:
-      cargo-minor-patch:
-        update-types:
-          - "minor"
-          - "patch"
     labels:
       - "Type: Maintenance"
   - package-ecosystem: github-actions
@@ -20,10 +15,14 @@ updates:
     cooldown:
       default-days: 7
     groups:
-      actions-all:
-        update-types:
-          - "major"
-          - "minor"
-          - "patch"
+      actions:
+        patterns:
+          - "actions/checkout"
+          - "actions/download-artifact"
+          - "actions/stale"
+      labeling:
+        patterns:
+          - "EndBug/export-label-config"
+          - "EndBug/label-sync"
     labels:
       - "Type: Maintenance"
