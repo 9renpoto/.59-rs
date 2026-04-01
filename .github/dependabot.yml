@@ -4,11 +4,26 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 7
+    groups:
+      cargo-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
     labels:
       - "Type: Maintenance"
   - package-ecosystem: github-actions
-    directory: "/"
+    directory: /
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 7
+    groups:
+      actions-all:
+        update-types:
+          - "major"
+          - "minor"
+          - "patch"
     labels:
       - "Type: Maintenance"
