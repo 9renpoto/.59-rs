@@ -4,11 +4,22 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 7
     labels:
       - "Type: Maintenance"
   - package-ecosystem: github-actions
-    directory: "/"
+    directory: /
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 7
+    groups:
+      actions:
+        patterns:
+          - "actions/*"
+      labeling:
+        patterns:
+          - "EndBug/*"
     labels:
       - "Type: Maintenance"
