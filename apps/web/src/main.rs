@@ -1,13 +1,13 @@
 use application::GreetingResponse;
 use gloo_net::http::Request;
-use leptos::*;
+use leptos::prelude::*;
 use wasm_bindgen_futures::spawn_local;
 
 #[component]
 fn App() -> impl IntoView {
-    let (name, set_name) = create_signal(String::new());
-    let (message, set_message) = create_signal(None::<String>);
-    let (error, set_error) = create_signal(None::<String>);
+    let (name, set_name) = signal(String::new());
+    let (message, set_message) = signal(None::<String>);
+    let (error, set_error) = signal(None::<String>);
 
     let submit = move |event: leptos::ev::SubmitEvent| {
         event.prevent_default();
@@ -72,5 +72,5 @@ fn App() -> impl IntoView {
 
 fn main() {
     console_error_panic_hook::set_once();
-    mount_to_body(App);
+    leptos::mount::mount_to_body(App);
 }
