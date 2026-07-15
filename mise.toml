@@ -1,0 +1,18 @@
+[tools]
+node = "lts"
+rust = "latest"
+"cargo:trunk" = "0.21.14"
+"cargo:worker-build" = "0.8.5"
+
+[tasks.setup]
+description = "Install the Rust WebAssembly target and Node dependencies"
+run = "rustup target add wasm32-unknown-unknown && npm install"
+
+[tasks.dev]
+description = "Start the local Cloudflare Workers development server"
+depends = ["setup"]
+run = "npm run dev"
+
+[tasks.check]
+description = "Run all local checks"
+run = "npm run check"

@@ -1,0 +1,15 @@
+[package]
+name = "worker-adapter"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+application = { path = "../../crates/application" }
+serde.workspace = true
+serde_json.workspace = true
+worker.workspace = true
+worker-macros.workspace = true
