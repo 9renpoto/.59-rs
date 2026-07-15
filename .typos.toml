@@ -4,5 +4,6 @@ extend-exclude = [
   ".wrangler",
   "build",
   "node_modules",
-  "target"
+  "target",
+  "dist"
 ]
