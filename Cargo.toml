@@ -4,5 +4,10 @@ version = "0.1.0"
 authors = ["Keisuke Umeno <9renpoto+g59@gmail.com>"]
 edition = "2021"
 
+[lib]
+crate-type = ["cdylib", "rlib"]
+
 [dependencies]
+worker = { version = "0.8" }
+worker-macros = { version = "0.8" }
 

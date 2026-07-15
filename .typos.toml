@@ -1,2 +1,8 @@
 [files]
-extend-exclude = [".github/labels.yaml"]
+extend-exclude = [
+  ".github/labels.yaml",
+  ".wrangler",
+  "build",
+  "node_modules",
+  "target"
+]
