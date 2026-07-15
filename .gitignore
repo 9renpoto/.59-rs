@@ -16,4 +16,11 @@ Cargo.lock
 # MSVC Windows builds of rustc generate these, which store debugging information
 *.pdb
 
+# Node.js / Wrangler
+node_modules/
+package-lock.json
+build/
+
+# Logs
+*.log
 
