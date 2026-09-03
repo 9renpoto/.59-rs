@@ -13,7 +13,24 @@ apps/web ────┘
 - `apps/worker`: HTTP, D1, and Cloudflare Workers adapter
 - `apps/web`: Leptos CSR adapter
 
+## Prerequisites
+
+- Node.js
+- Rust (with `wasm32-unknown-unknown` target)
+- `trunk`
+- `worker-build`
+
 ## Setup
+
+Standard setup:
+
+```bash
+rustup target add wasm32-unknown-unknown
+cargo install trunk worker-build
+npm install
+```
+
+Alternatively, if you use [mise](https://mise.jdx.dev/):
 
 ```bash
 mise install
