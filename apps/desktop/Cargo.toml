@@ -1,0 +1,15 @@
+[package]
+name = "desktop-ui"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+application = { path = "../../crates/application" }
+console_error_panic_hook.workspace = true
+js-sys.workspace = true
+leptos.workspace = true
+serde.workspace = true
+serde-wasm-bindgen.workspace = true
+wasm-bindgen.workspace = true
+wasm-bindgen-futures.workspace = true

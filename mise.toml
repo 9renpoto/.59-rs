@@ -16,3 +16,12 @@ run = "npm run dev"
 [tasks.check]
 description = "Run all local checks"
 run = "npm run check"
+
+[tasks.desktop-build]
+description = "Build the desktop frontend with Trunk"
+run = "cd apps/desktop && trunk build"
+
+[tasks.desktop]
+description = "Run the desktop application with Cargo"
+depends = ["desktop-build"]
+run = "cargo run -p desktop"
