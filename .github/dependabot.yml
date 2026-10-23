@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: npm
     directory: /
     schedule:
-      interval: weekly
+      interval: monthly
     cooldown:
       default-days: 7
     labels:
@@ -11,7 +11,7 @@ updates:
   - package-ecosystem: cargo
     directory: /
     schedule:
-      interval: weekly
+      interval: monthly
     cooldown:
       default-days: 7
     labels:
@@ -19,15 +19,12 @@ updates:
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: weekly
+      interval: monthly
     cooldown:
       default-days: 7
     groups:
       actions:
         patterns:
           - "actions/*"
-      labeling:
-        patterns:
-          - "EndBug/*"
     labels:
       - "Type: Maintenance"
